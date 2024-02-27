@@ -1,0 +1,36 @@
+using System;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Podaj zdanie: ");
+            string a = Console.ReadLine();
+            int b = a.Split(' ').Length;
+            while (b < 3)
+            {
+                Console.Write("Podaj zdanie: ");
+                string aa = Console.ReadLine();
+                int bb = aa.Split(' ').Length;
+                if (bb > 3)
+                {
+                    break;
+                }
+                a = aa;
+                b = bb;
+            }
+            Console.WriteLine("Udało sie wprowadzić poprawne zdanie.");
+            Console.WriteLine(a);
+            Console.WriteLine("Wypisuję łańcuch, każdy wyraz w odzielnym wierszu:");
+            char[] spearator = { ' , ', ' '};
+            String[] strlist = a.Split(spearator,
+            StringSplitOptions.RemoveEmptyEntries);
+            foreach (String s in strlist)
+            {
+                Console.WriteLine(s);
+            }
+        }
+    }
+}
